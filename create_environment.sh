@@ -83,3 +83,26 @@ process_submissions() {
 	echo "Current Assignment: $assignment_name"
 	echo "Student who have not submitted:"
 
+   while IFS=',' read -r student_name status; do 
+	status=$echo "$status" | xargs)
+	if [[ "$status == "NOT_SUBMITTED" ]]; then
+	   echo "- $student_name"
+	fi
+   done < "$submission_file"
+}
+EOF
+
+echo "Creating startup.sh"
+cat << EOF > startup.sh
+#!/usr/bin/bash
+echo "Starting the submission reminder application"
+bash app/reminder.sh
+echo "Application finished"
+
+Eof
+
+echo "making the .sh files executable"
+chmod +x app/*.sh modules/*.sh startup.sh
+
+cd - > /dev/null
+
