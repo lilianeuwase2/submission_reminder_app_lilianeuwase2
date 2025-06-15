@@ -20,7 +20,7 @@ echo "directory structure created"
 #creating and populating the files
 
 echo "Creating app/reminder.sh"
-cat << EOL > "$main_dir/app/reminder.sh"
+cat <<EOF > "$main_dir/app/reminder.sh"
 #!/bin/bash
 
 # Source environment variables and helper functions
@@ -36,9 +36,9 @@ echo "Days remaining to submit: $DAYS_REMAINING days"
 echo "--------------------------------------------"
 
 check_submissions $submissions_file
-EOL
+EOF
 
-cat << EOL > "$main_dir/modules/functions.sh"
+cat <<EOF > "$main_dir/modules/functions.sh"
 #!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
@@ -59,11 +59,10 @@ function check_submissions {
         fi
     done < <(tail -n +2 "$submissions_file") # Skip the header
 }
-EOL 
+EOF 
 
-echo "Creating assets/submissions.txt"
-cat << EOL > "$main_dir/assets/submissions.txt"
-student, assignment, sustatus
+cat  <<EOF > "$main_dir/assets/submissions.txt"
+student, assignment, submission status
 Chinemerem, Shell Navigation, not submitted
 Chiagoziem, Git, submitted
 Divine, Shell Navigation, not submitted
@@ -74,36 +73,24 @@ Patty, Git, not submitted
 Mutoni, Shell basics, not submitted
 Justine, Shell navigation, not submitted
 Winnie, Shell navigation, not submitted
-EOL
+EOF
 
-cat << EOL > "$main_dir/config/config.env"
+cat <<EOF > "$main_dir/config/config.env"
 # This is the config file
 ASSIGNMENT="Shell Navigation"
 DAYS_REMAINING=2
-EOL 
+EOF
 
-cat << EOL > "$main_dir/startup.sh"
+cat <<EOF > "$main_dir/startup.sh"
 #!/bin/bash
- This script initializes and starts the application.
-cd "$(dirname "$0")/../"
-
-# Source the configuration file
-if [ -f "config/config.env" ]; then
-    source "config/config.env"
-else
-    echo "Error: Configuration file not found!"
-    exit 1
-fi
-
-# Run the main reminder script from the 'app' directory
-bash "$main_dir/app/reminder.sh"
-EOL
+cd \$(dirname "$0")
+chmod +x *.sh
+./reminder.sh
+EOF
 
 # Make all .sh scripts executable
 find "${main_dir}" -type f -name "*.sh" -exec chmod +x {} \;
 
+echo "environment created in $main_dir"
 
-# Confirm setup complete
-echo "Environment setup complete. Run startup.sh to begin."
-echo "Path: $main_dir/scripts/startup.sh"
 

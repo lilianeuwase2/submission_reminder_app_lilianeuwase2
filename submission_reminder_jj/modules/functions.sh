@@ -18,10 +18,23 @@ function check_submissions {
         fi
     done < <(tail -n +2 "") # Skip the header
 }
-EOL 
+EOF 
 
-cat << EOL > "submission_reminder_lilianw/startup.sh"
-#!/bin/bash
-Start the reminder application
-SCRIPT_DIR="."
-bash "/reminder.sh"
+cat <<EOL > "submission_reminder_jj/assets/submissions.txt"
+student, assignment, submission status
+Chinemerem, Shell Navigation, not submitted
+Chiagoziem, Git, submitted
+Divine, Shell Navigation, not submitted
+Anissa, Shell Basics, submitted
+Keilla, Git, submitted
+Ruth, Shell navigation, not submitted
+Patty, Git, not submitted
+Mutoni, Shell basics, not submitted
+Justine, Shell navigation, not submitted
+Winnie, Shell navigation, not submitted
+EOL
+
+cat <<EOF > "submission_reminder_jj/config/config.env"
+# This is the config file
+ASSIGNMENT="Shell Navigation"
+DAYS_REMAINING=2
