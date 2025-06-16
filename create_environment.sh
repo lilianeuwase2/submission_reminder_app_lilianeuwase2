@@ -17,7 +17,13 @@ mkdir -p "$main_dir/modules"
 mkdir -p "$main_dir/assets"
 mkdir -p "$main_dir/config"
 echo "directory structure created"
-#creating and populating the files
+#Creating the files
+touch "$main_dir/app/reminder.sh"
+touch "$main_dir/modules/functions.sh"
+touch "$main_dir/assets/submissions.txt"
+touch "$main_dir/config/config.env"
+touch "$main_dir/startup.sh"
+#populating the files
 
 echo "Creating app/reminder.sh"
 cat <<EOF > "$main_dir/app/reminder.sh"
