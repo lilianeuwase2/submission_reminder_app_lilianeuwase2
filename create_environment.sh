@@ -1,22 +1,30 @@
 #!/bin/bash
-echo "welcome to the submission reminder app  setup"
-#Prompting the user for their name
+echo "Welcome to the Submission Reminder App"
+
 read -p "Please enter your name:" username
 
-#creating the main directory named submission_reminder_username
+if [ -z "$username" ]; then 
+	echo "No name entered , please re-run the script and enter your name to continue"
+	exit 1
+fi 
+
 
 main_dir="submission_reminder_${username}"
 
+if [ -d "$main_dir" ]; then 
+   echo "The directory '$main_dir' already etxists, please change the name or delete the existing directory"
+   exit 1
+fi 
+
 echo "Creating application directory: $main_dir"
 mkdir "$main_dir"
-
-#Creating the subdirectories
+#
 echo "Creating subdirectories"
 mkdir -p "$main_dir/app"
 mkdir -p "$main_dir/modules"
 mkdir -p "$main_dir/assets"
 mkdir -p "$main_dir/config"
-echo "directory structure created"
+echo "Directory structure created"
 #Creating the files 
 echo "Creating application files"
 touch "$main_dir/app/reminder.sh"
@@ -97,9 +105,10 @@ cd "\$(dirname "\$0")"
 EOF
 
 # Make all .sh scripts executable
+echo "Making the scripts executable"
 chmod +x "$main_dir/startup.sh"
 chmod +x "$main_dir/app/reminder.sh"
 chmod +x "$main_dir/modules/functions.sh"
 
-echo "environment created in $main_dir"
-echo "to run the application cd into $main_dir and run ./startup.sh"
+echo "Environment created in '$main_dir'"
+echo "to run the application cd into '$main_dir' and run ./startup.sh"
