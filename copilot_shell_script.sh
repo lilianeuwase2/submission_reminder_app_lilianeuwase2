@@ -6,8 +6,8 @@ main_dir="submission_reminder_${username}"
 
 # Check if the application directory actually exists
 if [ ! -d "$main_dir" ]; then
-    echo "Error: Application directory '$main_dir' not found."
-    echo "Please run the create_environment.sh script first."
+    echo "Error: Application directory $main_dir not found."
+    echo "Please make sure that you are in the correct parent directory and  run the create_environment.sh script "
     exit 1
 fi
 
@@ -23,11 +23,9 @@ read -p "Enter the new assignment name to check for: " new_assignment
 # starting with 'ASSIGNMENT=' and replaces the entire line.
 sed -i "s/^ASSIGNMENT=.*/ASSIGNMENT=\"$new_assignment\"/" "$CONFIG_FILE"
 
-echo "✅ Configuration updated successfully."
+echo "Configuration updated successfully."
 echo "New assignment set to: '$new_assignment'"
 
 # 4. Rerun the startup script automatically to show the new results
-echo "🚀 Rerunning the application with the new settings..."
-bash "${main_dir}/scripts/startup.sh"
-
-="submission_reminder_${username}"
+echo "Rerunning the application with the new settings..."
+bash "${main_dir}/startup.sh
