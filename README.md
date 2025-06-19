@@ -1,13 +1,13 @@
-# this a readme file that  contains the explanations on how the Submission Reminder application was run using mainly the create_environment.sh and copilot_shell_script.sh scripts 
+# this is  a readme file that  contains the explainations on how the Submission Reminder application was run using mainly the create_environment.sh and copilot_shell_script.sh scripts 
 
-#the purpose of the application is to check the list of student submission for a certain assignment and check for the student who have not yet submitted their assignmetn 
+#the purpose of the application is to check the list of student submission for a certain assignment and check for the student who have not yet submitted their assignment
 
-#the project shows proficiency in writing and executing shell scripts and automating tasks such as directory creation 
+#the project shows proficiency in writing and executing shell scripts and automating tasks such as directory creation and file maniputation
 
 #the repository contains the files 
-   create_environmet.sh file which is a shell scrip that sets up the directory structure                             for the application , populates the files with data and upd                             ates permission for the .sh files 
+   create_environmet.sh file which is a shell script that sets up the directory structure for the application , populates the files with data and updates permissions  for the .sh files
 
-  co_pilot_shell_script.sh which is the script that allows the user to change the assign                         met which is being checked
+  copilot_shell_script.sh which is the script that allows the user to change the assignment to change the assignmemt which is being checked for 
   README.md which is the files that contains instruction on how to run the application
 
 #How to use the application 
@@ -16,13 +16,13 @@
            change the directory to your repository name 
     
     step 2 : Creating the application environment
-           run the create_environment script and the script will ask you to enter your n           ame in order to create the main directory for the app 
+           run the create_environment script and the script will ask you to enter your name in order to create the main directory for the app 
 
-   step 3 :once the environment is created the change the directory into the created on              e and run the startup.sh script 
+   step 3 :once the environment is created the change the directory into the created one and run the startup.sh script 
   
-   after running the startup.sh script the application will run and show the list of stu    students who have not submitted the "Shell Navigaation" assignment . this happens       when you are running the startup.sh script for the first time 
+   after running the startup.sh script the application will run and show the list of students who have not submitted the "Shell Navigaation" assignment . this happens when you are running the startup.sh script for the first time 
 
-to check for the other assignments which are not submitted yet here we use the co_pilot_Shell_script.sh script 
+#to check for the other assignments which are not submitted yet here we use the copilot_Shell_script.sh script 
    here is how to change it 
     
 step 1: go back to the parent directory 

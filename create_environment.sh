@@ -18,21 +18,22 @@ fi
 
 echo "Creating application directory: $main_dir"
 mkdir "$main_dir"
-#
+
+
 echo "Creating subdirectories"
 mkdir -p "$main_dir/app"
 mkdir -p "$main_dir/modules"
 mkdir -p "$main_dir/assets"
 mkdir -p "$main_dir/config"
 echo "Directory structure created"
-#Creating the files 
+ 
 echo "Creating application files"
 touch "$main_dir/app/reminder.sh"
 touch "$main_dir/modules/functions.sh"
 touch "$main_dir/assets/submissions.txt"
 touch "$main_dir/config/config.env"
 touch "$main_dir/startup.sh"
-#populating the files
+
 
 echo "Populating the files"
 cat <<EOF > "$main_dir/modules/functions.sh"
@@ -104,7 +105,7 @@ cd "\$(dirname "\$0")"
 ./app/reminder.sh
 EOF
 
-# Make all .sh scripts executable
+
 echo "Making the scripts executable"
 chmod +x "$main_dir/startup.sh"
 chmod +x "$main_dir/app/reminder.sh"
